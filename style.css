@@ -4,9 +4,10 @@
 
 body {
     background-color: #2c3e50;
-    height: 100vh;
-    width: 100vw;
-    overflow-x: hidden;
+    height: 110vh;
+    /* width: 100vw; */
+    /* overflow-x: hidden; */
+    position: relative;
 }
 
 h1 {
@@ -29,7 +30,10 @@ h1 {
 #circle {
     width: 35vw;
     height: 35vw;
-    margin: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     border: 2px solid yellow;
     box-shadow: 0px 0px 12px 2px black;
     text-align: center;
@@ -37,6 +41,7 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 30px;
 }
 
 #resume {
@@ -62,6 +67,8 @@ footer {
     color: yellow;
     font-size: 20px;
     margin-top: 30px;
+    position: absolute;
+    bottom: 0px;
 }
 
 @media (max-width:900px) {
