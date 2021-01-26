@@ -41,6 +41,7 @@ function calculateTime(ellapsedFromStart, ellapsedFromStop) {
 
 resetbtn.onclick = () => {
     screen.innerHTML = '00:00:00';
+    lapCon.innerHTML = '';
     clearInterval(intervalId);
     resumeBtn.style.display = 'none'; //remove the resume btn when reset btn is clicked
     resetbtn.style.display = 'none';
