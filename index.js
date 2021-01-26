@@ -2,7 +2,10 @@ const startbtn = document.getElementById('start');
 const stopbtn = document.getElementById('stop');
 const resetbtn = document.getElementById('reset');
 const resumeBtn = document.getElementById('resume');
+const lapBtn = document.getElementById('lap');
 const screen = document.getElementById('screen');
+const lapCon = document.getElementById('lapCon');
+var lapCount = 0;
 var intervalId, startTimeCopy, stopTime, currentTime;
 
 function calculateTime(ellapsedFromStart, ellapsedFromStop) {
@@ -38,10 +41,11 @@ function calculateTime(ellapsedFromStart, ellapsedFromStop) {
 
 resetbtn.onclick = () => {
     screen.innerHTML = '00:00:00';
+    clearInterval(intervalId);
     resumeBtn.style.display = 'none'; //remove the resume btn when reset btn is clicked
     resetbtn.style.display = 'none';
     stopbtn.style.display = 'none';
-
+    lapBtn.style.display = 'none';
 }
 
 startbtn.addEventListener('click', () => {
@@ -49,6 +53,7 @@ startbtn.addEventListener('click', () => {
     calculateTime(0, 0);
     resetbtn.style.display = 'inline-block';
     stopbtn.style.display = 'inline-block';
+    lapBtn.style.display = 'inline-block';
 });
 
 stopbtn.onclick = () => {
@@ -65,3 +70,10 @@ resumeBtn.addEventListener('click', () => {
     calculateTime(ellapsedFromStart, ellapsedFromStop);
     resumeBtn.style.display = 'none'; //remove the resume btn when resume btn is clicked
 });
+
+lapBtn.addEventListener('click', () => {
+    lapCount++;
+    let newLapId = document.createElement('p');
+    newLapId.innerHTML = lapCount + ": " + screen.innerHTML;
+    lapCon.appendChild(newLapId);
+})
